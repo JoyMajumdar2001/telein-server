@@ -40,7 +40,7 @@ bot.start((ctx) => {
       console.error(error);
     })
     .then(() => {
-      ctx.reply("Click the link to login https://app.telein.com/verify/ " + uidKey);
+      ctx.reply("Click the link to login https://app.telein.com/verify/" + uidKey);
     });
 });
 
