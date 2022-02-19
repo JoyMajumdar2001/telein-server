@@ -1,0 +1,20 @@
+{
+  "name": "telein",
+  "version": "1.0.0",
+  "description": "TeleIn login",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "Joysankar Majumdar",
+  "license": "ISC",
+  "dependencies": {
+    "@azure/cosmos": "^3.15.1",
+    "body-parser": "^1.19.2",
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "telegraf": "^4.7.0",
+    "uuid": "^8.3.2"
+  }
+}
