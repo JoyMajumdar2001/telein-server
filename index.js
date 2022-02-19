@@ -61,17 +61,17 @@ async function main() {
 
 async function login(keyid, res) {
 
-  resources = await container2.items
+  resourcesMain = await container.items
     .query({
-      query: "SELECT * from c WHERE c.uid = @Uid",
+      query: "SELECT * from c WHERE c.tempuid = @Uid",
       parameters: [{ name: "@Uid", value: keyid }],
     })
     .fetchAll();
 
-    resourcesMain = await container.items
+  resources = await container2.items
     .query({
-      query: "SELECT * from c WHERE c.tempuid = @Uid",
-      parameters: [{ name: "@Uid", value: keyid }],
+      query: "SELECT * from c WHERE c.tid = @Tid",
+      parameters: [{ name: "@Tid", value: resourcesMain.resources[0].tid }],
     })
     .fetchAll();
 
