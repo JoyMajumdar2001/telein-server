@@ -68,9 +68,22 @@ async function login(keyid, res) {
     })
     .fetchAll();
 
-    var crtAcc = {key : 0, msg : "signup"}
+    resourcesMain = await container.items
+    .query({
+      query: "SELECT * from c WHERE c.tempuid = @Uid",
+      parameters: [{ name: "@Uid", value: keyid }],
+    })
+    .fetchAll();
 
     if(resources.resources.length == 0){
+        var crtAcc = {
+            key : 0, 
+            msg : "signup",
+            uid : resourcesMain.resources[0].tempuid,
+            tid : resourcesMain.resources[0].tid,
+            fname : resourcesMain.resources[0].fname,
+            lname : resourcesMain.resources[0].lname
+        }
         res.send(crtAcc);
     }
     else{
